@@ -1,0 +1,52 @@
+package com.demoblaze.stepdefinitions;
+
+import com.demoblaze.exceptions.MessageException;
+import com.demoblaze.models.Credentials;
+import com.demoblaze.questions.CompareName;
+import com.demoblaze.tasks.LoginTask;
+import com.demoblaze.utils.Constants;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import net.serenitybdd.screenplay.GivenWhenThen;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.actors.Cast;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.thucydides.core.annotations.Managed;
+import org.hamcrest.Matchers;
+import org.openqa.selenium.WebDriver;
+
+import java.util.List;
+
+public class LoginStepDefinition {
+
+    @Managed
+    WebDriver hisBrowser;
+
+    @Before
+    public void setUp(){
+        OnStage.setTheStage(Cast.ofStandardActors());
+        OnStage.theActorCalled("user");
+        OnStage.theActorInTheSpotlight().can(BrowseTheWeb.with(hisBrowser));
+    }
+
+    @Given("^el usuario abre la pagina de inicio de sesion$")
+    public void elUsuarioAbreLaPaginaDeInicioDeSesion() {
+        OnStage.theActorInTheSpotlight().wasAbleTo(Open.url(Constants.BASE_URL));
+    }
+
+    @When("^el usuario ingresa su usuario y contrasena validos$")
+    public void elUsuarioIngresaSuUsuarioYContrasenaValidos(List<Credentials> credentialsList) {
+        Credentials credentials = credentialsList.get(0);
+        OnStage.theActorInTheSpotlight().attemptsTo(LoginTask.enterCredentials(credentials));
+    }
+
+    @Then("^el usuario podra ver su nombre en la pantalla principal$")
+    public void elUsuarioPodraVerSuNombreEnLaPantallaPrincipal() {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(CompareName.compare()
+        , Matchers.containsString(Constants.NAME_COMPARATION))
+                .orComplainWith(MessageException.class,Constants.MESSAGE_EXCEPTION));
+    }
+}
