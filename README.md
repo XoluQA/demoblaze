@@ -53,7 +53,7 @@ target/site/serenity/index.html
 
 🧑‍💻 Autor
 XoluQA
-📧 xolugg@gmail.com
-🔗 GitHub
+📧 [xolugg@gmail.com](mailto:xolugg@gmail.com)  
+🔗 [GitHub](https://github.com/XoluQA)
 
 ¡Gracias por visitar este repositorio! ⭐ Dale una estrella si te gustó este proyecto.
