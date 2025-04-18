@@ -42,7 +42,7 @@ Este proyecto automatiza casos de prueba funcionales sobre el sitio web [Demobla
 ## 🧪 Cómo ejecutar los tests
 
 1. Clona el repositorio:
-```bash
+bash
 git clone https://github.com/XoluQA/demoblaze.git
 
 2. Ejecuta las pruebas desde consola:
