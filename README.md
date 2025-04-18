@@ -26,14 +26,15 @@ Este proyecto automatiza casos de prueba funcionales sobre el sitio web [Demobla
 
 ## 📁 Estructura del proyecto
 
-📂 src 
-      ┣ 📂 main  
-      ┃ ┗ 📂 java 
-      ┃ ┗ 🧠 lógica de negocio, tareas y page objects 
-      ┣ 📂 test 
-      ┃ ┗ 📂 java 
-      ┃ ┣ 🎭 definiciones de pasos (Step Definitions) 
-      ┃ ┗ 🧪 runners de pruebas
+📁 **src**
+├── 📁 main
+│   └── 📁 java
+│       └── 💼 lógica de negocio, tareas y page objects
+├── 📁 test
+│   └── 📁 java
+│       ├── 🧩 definiciones de pasos (Step Definitions)
+│       └── 🧪 runners de pruebas
+
 
 
 ---
@@ -52,7 +53,7 @@ target/site/serenity/index.html
 
 🧑‍💻 Autor
 XoluQA
-📧 [xolugg@gmail.com](mailto:xolugg@gmail.com)  
-🔗 [GitHub](https://github.com/XoluQA)
+📧 xolugg@gmail.com
+🔗 GitHub
 
 ¡Gracias por visitar este repositorio! ⭐ Dale una estrella si te gustó este proyecto.
